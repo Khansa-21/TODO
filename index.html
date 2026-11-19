@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101b2d" />
+    <meta
+      name="description"
+      content="A calm, focused space for the things that matter today."
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+    <title>Daylight: Your to-do list</title>
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Daylight home"
+          ><span class="brand-mark" aria-hidden="true">&#x2733;</span
+          ><span>daylight</span></a
+        ><span class="date-label" id="today-label"></span>
+      </header>
+      <section class="welcome" aria-labelledby="page-title">
+        <p class="eyebrow">
+          <span class="sun-icon" aria-hidden="true">&#x260c;</span> A LITTLE
+          MORE CLARITY
+        </p>
+        <h1 id="page-title">Make room for<br /><span>what matters.</span></h1>
+        <p class="intro">One thing at a time. You’ve got this.</p>
+      </section>
+      <section class="todo-card" aria-label="To-do list">
+        <form class="add-form" id="add-form">
+          <label class="sr-only" for="task-input">Add a task</label
+          ><span class="input-plus" aria-hidden="true">&#x2b;</span
+          ><input
+            id="task-input"
+            name="task"
+            type="text"
+            placeholder="What needs to get done?"
+            maxlength="160"
+            autocomplete="off"
+            required
+          /><button class="add-button" type="submit">
+            Add task <span aria-hidden="true">&#x2197;</span>
+          </button>
+        </form>
+        <div class="list-toolbar">
+          <div class="summary-block">
+            <div class="task-summary" aria-live="polite">
+              <span class="summary-count" id="remaining-count">0</span
+              ><span id="remaining-label">things left to do</span>
+            </div>
+            <div class="progress-wrap">
+              <div
+                class="progress-track"
+                role="progressbar"
+                aria-label="Task completion"
+                aria-valuenow="0"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <span class="progress-fill" id="progress-fill"></span>
+              </div>
+              <span class="progress-label" id="progress-label"
+                >0% complete</span
+              >
+            </div>
+          </div>
+          <nav class="filters" aria-label="Filter tasks">
+            <button
+              class="filter-button is-active"
+              type="button"
+              data-filter="all"
+              aria-pressed="true"
+            >
+              All</button
+            ><button
+              class="filter-button"
+              type="button"
+              data-filter="active"
+              aria-pressed="false"
+            >
+              To do</button
+            ><button
+              class="filter-button"
+              type="button"
+              data-filter="completed"
+              aria-pressed="false"
+            >
+              Done
+            </button>
+          </nav>
+        </div>
+        <ul class="task-list" id="task-list" aria-label="Tasks"></ul>
+        <div class="empty-state" id="empty-state">
+          <span class="empty-icon" aria-hidden="true">&#x2733;</span>
+          <p class="empty-title">A fresh start.</p>
+          <p class="empty-copy">Add a task above and take it from there.</p>
+        </div>
+        <footer class="list-footer">
+          <span
+            ><span class="footer-dot" aria-hidden="true"></span> Your list is
+            saved on this device</span
+          ><button
+            class="clear-button"
+            id="clear-completed"
+            type="button"
+            hidden
+          >
+            Clear completed
+          </button>
+        </footer>
+      </section>
+      <p class="bottom-note">
+        Small steps still move you forward
+        <span aria-hidden="true">&#x2197;</span>
+      </p>
+    </main>
+    <div class="sr-only" id="announcements" aria-live="polite"></div>
+  </body>
+</html>
